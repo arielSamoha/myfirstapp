@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: myfirstapp
+spec:
+  ingressClassName: nginx-example
+  rules:
+    - http:
+      host: {{ .Values.ingress.host }}
+      paths:
+      - path: {{ .Values.ingress.path }}
+        pathType: Prefix
+        backend:
+          service:
+            name: myfirstapp
+            port:
+              number: 5000
+status:
+  loadBalancer: {}

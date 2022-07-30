@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myfirstapp
+  labels:
+    app: myfirstapp
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: myfirstapp
+  template:
+    metadata:
+      labels:
+        app: myfirstapp
+    spec:
+      containers:
+      - name: myfirstapp
+        image: 182257704198.dkr.ecr.eu-central-1.amazonaws.com/arielsamoha:myfirstapp
+        resources: 
+          limits:
+            memory: {{ .Values.resources.limits.memory }}
+            cpu:  {{ .Values.resources.limits.cpu }}
+        ports:
+        - containerPort: 5000
+      imagePullSecrets: 
+        - name: regcred
