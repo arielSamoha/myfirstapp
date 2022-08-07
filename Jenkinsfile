@@ -3,7 +3,7 @@ pipeline {
     agent any
 
     stages{
-        stage("build") {
+        stage("Build") {
             steps{
                 sh "echo hello ariel"
                 sh "docker build -t arielapp ."             
