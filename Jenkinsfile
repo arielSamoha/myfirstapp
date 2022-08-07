@@ -1,6 +1,6 @@
 pipeline {
 
-    agent {"lable ec2"}
+    agent {"ec2"}
 
     stages{
         stage("Build") {
