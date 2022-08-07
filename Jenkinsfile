@@ -6,6 +6,7 @@ pipeline {
         stage("Build") {
             steps{
                 sh "echo hello ariel"
+                sh "ls"
                 sh "docker build -t arielapp ."             
                 }
             }
